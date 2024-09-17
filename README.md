@@ -4,6 +4,8 @@
 [![Go](https://img.shields.io/badge/Go-1.23.1-blue.svg)](https://tip.golang.org/doc/go1.23)
 [![Kubernetes](https://img.shields.io/badge/kubernetes-1.29.1-blue)](https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release/)
 
+[![Go](https://github.com/gaudi-organization/gaudi-cloud/actions/workflows/go.yaml/badge.svg)](https://github.com/gaudi-organization/gaudi-cloud/actions/workflows/go.yaml)
+
 # Gaudi Cloud:
 
 This development will contribute to the Gaudi repository.
