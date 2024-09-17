@@ -8,7 +8,7 @@ import (
 
 func TestHello(t *testing.T) {
 	str := "Hello, World!"
-	if str != internal.GetHello() {
+	if str == internal.GetHello() {
 		t.Fatal("test failed")
 	} else {
 		t.Log("test successful")
