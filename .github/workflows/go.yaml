@@ -37,7 +37,7 @@ jobs:
 
       - name: Test code
         run: |
-          cd ../../pkg/api
+          cd ./pkg/api
           go test -v ./...
 
   build:
@@ -55,5 +55,5 @@ jobs:
 
       - name: Build
         run: |
-          cd ../../pkg/api
+          cd ./pkg/api
           go build -v ./main.go
