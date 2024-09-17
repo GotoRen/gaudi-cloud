@@ -1,3 +1,3 @@
-module github.com/CyberAgentHack/24fresh_g_spark-link_cloud/pkg/api
+module github.com/gaudi-organization/gaudi-cloud/pkg/api
 
-go 1.22.2
+go 1.23.1
