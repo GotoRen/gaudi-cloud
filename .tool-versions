@@ -1,0 +1,11 @@
+direnv 2.33.0
+golang 1.23.1
+helm 3.16.1
+jq 1.7.1
+kubectl 1.29.1
+kustomize 5.3.0
+pre-commit 3.6.0
+stern 1.28.0
+terraform 1.7.5
+terraformer 0.8.24
+yq 4.43.1
