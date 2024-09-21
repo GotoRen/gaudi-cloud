@@ -74,7 +74,7 @@ module "gke" {
     // - n2-standard-16 is 16 vCPU / 64 GB Memory
     {
       name               = "gaudi-tky-prd-node-pool"
-      machine_type       = "e2-highcpu-2"
+      machine_type       = "e2-standard-4"
       version            = local.cluster_version
       disk_size_gb       = 50
       disk_type          = "pd-balanced"
