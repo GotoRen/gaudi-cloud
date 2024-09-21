@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+  - pairs:
+      app.kubernetes.io/env: prd
+      app.kubernetes.io/owner: cloud-platform
+      app.kubernetes.io/group: monitoring
+    includeTemplates: true
+resources:
+  - ./namespace.yaml
+namespace: monitoring
+helmCharts:
+  - name: kube-prometheus-stack
+    repo: https://prometheus-community.github.io/helm-charts
+    version: 62.7.0
+    releaseName: kube-prometheus-stack
+    valuesFile: ./values.yaml
+    namespace: monitoring
+    includeCRDs: true
