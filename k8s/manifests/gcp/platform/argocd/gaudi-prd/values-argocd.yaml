@@ -1372,12 +1372,12 @@ redis:
 
   # -- Resource limits and requests for redis
   resources:
-    limits:
-      cpu: 200m
-      memory: 128Mi
     requests:
-      cpu: 100m
-      memory: 64Mi
+      memory: "512Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"
 
   # -- Redis pod-level security context
   # @default -- See [values.yaml]
@@ -1645,6 +1645,14 @@ server:
     # Ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
     metrics: []
 
+    resources:
+      requests:
+        memory: "512Mi"
+        cpu: "250m"
+      limits:
+        memory: "1Gi"
+        cpu: "500m"
+
   ## Argo CD server Pod Disruption Budget
   ## Ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
   pdb:
@@ -1814,12 +1822,12 @@ server:
 
   # -- Resource limits and requests for the Argo CD server
   resources:
-    limits:
-      cpu: 200m
-      memory: 256Mi
     requests:
-      cpu: 100m
-      memory: 128Mi
+      memory: "512Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "500m"
 
   # Server container ports
   containerPorts:
