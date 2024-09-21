@@ -24,7 +24,7 @@ module "gke" {
   # authenticator_security_group = "gke-security-groups@yourdomain.com"
   kubernetes_version                  = local.cluster_version # Control Plane version
   deletion_protection                 = false
-  release_channel                     = "REGULAR"
+  release_channel                     = "UNSPECIFIED"
   disable_default_snat                = false # disable = false
   logging_service                     = "logging.googleapis.com/kubernetes"
   monitoring_service                  = "monitoring.googleapis.com/kubernetes"
