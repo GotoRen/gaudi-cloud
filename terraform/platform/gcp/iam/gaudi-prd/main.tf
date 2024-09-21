@@ -20,6 +20,14 @@ resource "google_project_iam_member" "gke-service-account" {
     "roles/logging.logWriter",
     "roles/stackdriver.resourceMetadata.writer",
     "roles/artifactregistry.reader",
+    "roles/container.clusterAdmin",
+    "roles/compute.networkAdmin",
+    "roles/compute.instanceAdmin.v1",
+    "roles/iam.serviceAccountUser",
+    "roles/container.developer",
+    "roles/compute.loadBalancerAdmin",
+    "roles/compute.securityAdmin",
+    "roles/dns.admin",
   ])
   role = each.value
 }

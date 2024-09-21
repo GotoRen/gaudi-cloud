@@ -73,7 +73,7 @@ module "gke" {
     // https://cloud.google.com/compute/docs/general-purpose-machines#n2-standard
     // - n2-standard-16 is 16 vCPU / 64 GB Memory
     {
-      name               = "gaudi-tky-prd-preemptible-node-pool"
+      name               = "gaudi-tky-prd-node-pool"
       machine_type       = "e2-highcpu-2"
       version            = local.cluster_version
       disk_size_gb       = 50
@@ -86,7 +86,7 @@ module "gke" {
       initial_node_count = 0
       max_pods_per_node  = 64
       autoscaling        = true
-      node_count         = 0
+      node_count         = 3
       min_count          = 3
       max_count          = 20
     }
@@ -104,18 +104,18 @@ module "gke" {
       disable-legacy-endpoints = "true"
       cluster_name             = local.cluster_name
     }
-    gaudi-tky-prd-preemptible-node-pool = {
-      type = "gaudi-tky-prd-preemptible-node-pool"
+    gaudi-tky-prd-node-pool = {
+      type = "gaudi-tky-prd-node-pool"
     }
   }
 
   // node 自体にラベルを付けるにはこのオプションが必要
   node_pools_resource_labels = {
     all = {}
-    gaudi-tky-prd-preemptible-node-pool = merge(
+    gaudi-tky-prd-node-pool = merge(
       module.resource_labels.labels,
       {
-        "resource-name"     = "gaudi-tky-prd-preemptible-node-pool",
+        "resource-name"     = "gaudi-tky-prd-node-pool",
         "resource-group"    = local.group,
         "resource-subgroup" = local.cluster_name,
       },
@@ -123,7 +123,7 @@ module "gke" {
   }
 
   node_pools_tags = {
-    all                                 = []
-    gaudi-tky-prd-preemptible-node-pool = []
+    all                     = []
+    gaudi-tky-prd-node-pool = []
   }
 }

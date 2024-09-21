@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+  - pairs:
+      app.kubernetes.io/env: prd
+      app.kubernetes.io/owner: backend
+      app.kubernetes.io/managed-by: argocd
+      app.kubernetes.io/name: nginx
+    includeTemplates: true
+namespace: nginx
+resources:
+  - ./backend-config.yaml
+  - ./deployment.yaml
+  - ./ingress.yaml
+  - ./namespace.yaml
+  - ./service.yaml
