@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+labels:
+  - pairs:
+      app.kubernetes.io/env: prd
+      app.kubernetes.io/owner: cloud-platform
+      app.kubernetes.io/managed-by: argocd
+    includeTemplates: true
+resources:
+  - ./backend-config.yaml
+  - ./ingress.yaml
+  - ./namespace.yaml
+namespace: argocd
+helmCharts:
+  - name: argo-cd
+    repo: https://argoproj.github.io/argo-helm
+    releaseName: argocd
+    version: 6.7.14
+    valuesFile: ./values-argocd.yaml
+    namespace: argocd
+    includeCRDs: true
+  - name: argocd-apps
+    repo: https://argoproj.github.io/argo-helm
+    releaseName: argocd-apps
+    version: 2.0.0
+    valuesFile: ./values-argocd-apps.yaml
+    namespace: argocd
+    includeCRDs: true
