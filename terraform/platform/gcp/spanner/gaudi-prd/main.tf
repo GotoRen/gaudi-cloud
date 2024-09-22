@@ -17,6 +17,6 @@ resource "google_spanner_instance" "prd_spanner" {
 resource "google_spanner_database" "gaudi" {
   instance                 = google_spanner_instance.prd_spanner.name
   name                     = "gaudi"
-  deletion_protection      = true
   version_retention_period = "7d"
+  deletion_protection      = false
 }
