@@ -3,13 +3,10 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   namespace: nginx
-  labels:
-    app: nginx-pod
 spec:
   selector:
     matchLabels:
       app: nginx-pod
-  replicas: 3
   template:
     metadata:
       labels:

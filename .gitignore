@@ -385,5 +385,7 @@ Session.vim
 # binary
 main
 
+charts/*
+
 # env
 .envrc

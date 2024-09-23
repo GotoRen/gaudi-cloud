@@ -11,6 +11,7 @@ namespace: nginx
 resources:
   - ./backend-config.yaml
   - ./deployment.yaml
+  - ./hpa.yaml
   - ./ingress.yaml
   - ./namespace.yaml
   - ./service.yaml
