@@ -385,7 +385,11 @@ Session.vim
 # binary
 main
 
-charts/*
+# helm chart
+charts
 
 # env
 .envrc
+
+# minio
+.minio
