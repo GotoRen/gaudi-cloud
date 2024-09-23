@@ -21,6 +21,10 @@ resource "google_compute_firewall" "pod_to_node" {
   source_ranges = [
     local.subnetwork_ranges.gke_gaudi_prd_pod # 10.16.0.0/12
   ]
+
+  depends_on = [
+    google_compute_network.gke_gaudi_vpc_network
+  ]
 }
 
 // VPC サブネットの内部通信を全て許可
@@ -46,6 +50,10 @@ resource "google_compute_firewall" "allow_internal_traffic" {
   source_ranges = [
     local.subnetwork_ranges.gke_gaudi_prd_subnet # 10.0.0.0/20
   ]
+
+  depends_on = [
+    google_compute_network.gke_gaudi_vpc_network
+  ]
 }
 
 // 外部からの HTTP 通信を許可
@@ -61,5 +69,9 @@ resource "google_compute_firewall" "allow_http_external" {
 
   source_ranges = [
     "0.0.0.0/0"
+  ]
+
+  depends_on = [
+    google_compute_network.gke_gaudi_vpc_network
   ]
 }

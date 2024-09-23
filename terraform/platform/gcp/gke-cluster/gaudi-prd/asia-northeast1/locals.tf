@@ -10,19 +10,12 @@ locals {
   cluster_name    = "gaudi-tky-prd"
   cluster_version = "1.29.8-gke.1031000"
 
-  cluster_autoscaling = {
-    enabled             = false
-    auto_upgrade        = false
-    auto_repair         = true
-    autoscaling_profile = "OPTIMIZE_UTILIZATION"
-    max_cpu_cores       = 0
-    min_cpu_cores       = 0
-    max_memory_gb       = 0
-    min_memory_gb       = 0
-    gpu_resources       = []
-  }
-}
-
-locals {
-  subnets_secondary_ranges = flatten(data.terraform_remote_state.network.outputs.subnets_secondary_ranges)
+  ### Quota Limit ###
+  # - CPUs (All Regions): 32 vCPU まで
+  # - CPUs (Regional): 24 vCPU まで
+  # - SSD Total GB: 500GB まで
+  # refs: https://cloud.google.com/compute/docs/general-purpose-machines#e2-standard
+  machine_type   = "e2-standard-4" # 4vCPU / 16GB
+  min_node_count = 1               # ゾーンあたりのノードの最小数
+  max_node_count = 3               # ゾーンあたりのノードの最大数
 }

@@ -1,15 +1,15 @@
 terraform {
-  required_version = ">= 1.9.0"
+  required_version = "1.9.5"
 
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "< 7"
+      version = "6.3.0"
     }
 
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = "~> 2.10"
+      version = "2.32.0"
     }
   }
 

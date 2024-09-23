@@ -1,5 +1,5 @@
 /*************************************************
-	VPC configuration for GKE (Private Network)
+  VPC configuration for GKE (Private Network)
  *************************************************/
 resource "google_compute_network" "gke_gaudi_vpc_network" {
   project                 = local.project_id
@@ -20,7 +20,7 @@ resource "google_compute_subnetwork" "gke_gaudi_vpc_subnetwork" {
   log_config {
     aggregation_interval = "INTERVAL_5_SEC"
     flow_sampling        = 1
-    metadata             = "INCLUDE_ALL_METADATA" # CloudLogging に VPC Flow Logs を出力
+    metadata             = "INCLUDE_ALL_METADATA" # VPC Flow ログを出力
     filter_expr          = "true"                 # used CEL (Common Expression Language)
   }
 
@@ -34,4 +34,8 @@ resource "google_compute_subnetwork" "gke_gaudi_vpc_subnetwork" {
     range_name    = local.gke_gaudi_prd.services_secondary_range_name # GKE Service IP range
     ip_cidr_range = local.subnetwork_ranges["gke_gaudi_prd_service"]  # 10.1.0.0/20
   }
+
+  depends_on = [
+    google_compute_network.gke_gaudi_vpc_network
+  ]
 }
