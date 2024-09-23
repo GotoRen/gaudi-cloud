@@ -1,4 +1,4 @@
-// プライベートサブネットノード の Pod から VPC 内への Egress 通信を許可
+// プライベートサブネットに配置されたノード Pod から VPC 内の他のサービスへの通信を許可
 resource "google_compute_firewall" "pod-to-node" {
   project = local.project_id
   name    = "${local.network_name}-allow-pod-to-node"
