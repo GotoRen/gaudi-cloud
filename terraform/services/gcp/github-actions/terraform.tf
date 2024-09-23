@@ -6,15 +6,10 @@ terraform {
       source  = "hashicorp/google"
       version = "6.3.0"
     }
-
-    github = {
-      source  = "integrations/github"
-      version = "6.3.0"
-    }
   }
 
   backend "gcs" {
     bucket = "gaudi-prd-terraform-tfstate"
-    prefix = "platform/gcp/workload-identity-federation/modules/github"
+    prefix = "services/gcp/github-actions"
   }
 }
