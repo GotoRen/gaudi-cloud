@@ -1,7 +1,7 @@
 locals {
   project_id = "gcp-gaudi-prd"
   region     = "asia-northeast1"
-  owner      = "cloud-platform"
+  owner      = "backend"
   env        = "prd"
 }
 

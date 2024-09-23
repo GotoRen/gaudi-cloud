@@ -1,21 +1,15 @@
-resource "google_service_account" "main" {
+resource "google_service_account" "gaudi_frontend" {
   project      = local.project_id
-  account_id   = local.service_name
-  display_name = local.service_name
-  description  = "Managed by terraform: for ${local.service_name}"
+  account_id   = local.service_account_name
+  display_name = local.service_account_name
+  description  = "Managed by terraform: for ${local.service_account_name}"
 }
 
-resource "google_service_account_iam_member" "main" {
-  service_account_id = google_service_account.main.name
-  member             = "serviceAccount:${local.project_id}.svc.id.goog[${local.namespace}/${local.ksa_name}]"
-  role               = "roles/iam.workloadIdentityUser"
-}
-
-resource "google_project_iam_member" "main" {
+resource "google_project_iam_member" "gaudi_frontend_iam_role" {
   project = local.project_id
-  member  = "serviceAccount:${google_service_account.main.email}"
+  member  = "serviceAccount:${google_service_account.gaudi_frontend.email}"
   for_each = toset([
-    "roles/spanner.databaseUser", # https://cloud.google.com/spanner/docs/iam#roles
+    "roles/storage.admin", # https://cloud.google.com/storage/docs/access-control/iam-roles
   ])
   role = each.value
 }

@@ -48,7 +48,10 @@ gaudi          True       <YOUR_EMAIL>                   <YOUR_PROJECT>
 
 ## GKE 構築手順
 
-- WIP
+```shell
+### GKE クラスタに接続
+$ gcloud container clusters get-credentials <YOUR_CLUSTER_NAME> --region <YOUR_REGION> --project <YOUR_PROJECT>
+```
 
 ## 参考
 
