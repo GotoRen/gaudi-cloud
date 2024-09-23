@@ -1,3 +1,4 @@
+
 terraform {
   required_version = "1.9.5"
 
@@ -10,6 +11,6 @@ terraform {
 
   backend "gcs" {
     bucket = "gaudi-prd-terraform-tfstate"
-    prefix = "platform/gcp/gar/gaudi-prd"
+    prefix = "services/gcp/frontend/gaudi-prd"
   }
 }

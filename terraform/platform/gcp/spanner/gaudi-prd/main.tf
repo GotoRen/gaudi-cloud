@@ -1,8 +1,8 @@
 resource "google_spanner_instance" "prd_spanner" {
-  name         = local.name
-  config       = "regional-asia-northeast1"
-  display_name = "Shared Storage for Production"
-  num_nodes    = 1
+  name             = local.name
+  config           = "regional-asia-northeast1"
+  display_name     = "Shared Storage for Production"
+  processing_units = 100
 
   labels = merge(
     module.resource_labels.labels,
