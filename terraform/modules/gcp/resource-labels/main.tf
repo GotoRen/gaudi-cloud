@@ -20,9 +20,12 @@ locals {
 
 output "labels" {
   value = tomap({
+    "resource-env"        = var.env,
     "resource-name"       = var.name,
     "resource-owner"      = var.owner,
-    "resource-env"        = var.env,
+    "resource-group"      = var.group,
+    "resource-subgroup"   = var.subgroup,
+    "resource-tags"       = var.tags,
     "resource-managed-by" = "terraform", // Module 利用者による上書を禁止とする
   })
 

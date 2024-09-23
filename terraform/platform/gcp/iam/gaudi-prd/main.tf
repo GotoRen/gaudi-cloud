@@ -1,40 +1,97 @@
+//【注意】Project Owner ( ren510dev@gmail.com ) 以外のメンバーが変更することを一切禁止します
+//
+//
 //-----------------------------------------------------------------------------
-// IMPORTANT NOTE
-// - GSA gke-service-account は GKE の動作に必要な最小権限を付与する
+// IAM: k.130.email@gmail.com に開発に必要な最小限の権限を付与する
 //-----------------------------------------------------------------------------
-// SA: gke-service-account
-resource "google_service_account" "gke-service-account" {
-  account_id   = local.name
-  display_name = local.name
-  description  = "Managed by terraform: GKE の最小権限アカウント"
-}
-
-// IAM: gke-service-account に必要な最小権限を追加する
-resource "google_project_iam_member" "gke-service-account" {
+resource "google_project_iam_member" "keisuke_ishigami" {
   project = local.project_id
-  member  = "serviceAccount:${google_service_account.gke-service-account.email}"
+  member  = "user:k.130.email@gmail.com"
   for_each = toset([
-    // see https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa
-    "roles/monitoring.viewer",
-    "roles/monitoring.metricWriter",
-    "roles/logging.logWriter",
-    "roles/stackdriver.resourceMetadata.writer",
-    "roles/artifactregistry.reader",
-    "roles/container.clusterAdmin",
-    "roles/compute.networkAdmin",
-    "roles/compute.instanceAdmin.v1",
-    "roles/iam.serviceAccountUser",
+    // Global
+    "roles/viewer",
+
+    // GKE
     "roles/container.developer",
-    "roles/compute.loadBalancerAdmin",
-    "roles/compute.securityAdmin",
-    "roles/dns.admin",
+    // GAR
+    "roles/artifactregistry.writer",
+    "roles/artifactregistry.reader",
+    // Monitoring
+    "roles/monitoring.editor",
+    // Logging
+    "roles/logging.admin",
+    // Spanner
+    "roles/spanner.databaseAdmin",
+    "roles/spanner.databaseReader",
+    // Memorystore for Redis
+    "roles/redis.editor",
+    // GCS
+    "roles/storage.objectCreator",
+    "roles/storage.objectViewer",
+    // Cloud Functions
+    "roles/cloudfunctions.developer",
+    // Firebase
+    "roles/firebase.developAdmin",
   ])
   role = each.value
 }
 
-# // GCS: gke-service-account に GAR への取得権限を追加する
-# resource "google_storage_bucket_iam_member" "gke-service-account-gar-asia" {
-#   bucket = "asia.artifacts.${local.project_id}.appspot.com"
-#   role   = "roles/storage.objectViewer" // see https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster?hl=ja#use_least_privilege_sa
-#   member = "serviceAccount:${google_service_account.gke-service-account.email}"
-# }
+//-----------------------------------------------------------------------------
+// IAM: srro1991@gmail.com に開発に必要な最小限の権限を付与する
+//-----------------------------------------------------------------------------
+resource "google_project_iam_member" "ryotaro_suzuki" {
+  project = local.project_id
+  member  = "user:srro1991@gmail.com"
+  for_each = toset([
+    // Global
+    "roles/viewer",
+
+    // GKE
+    "roles/container.developer",
+    // GAR
+    "roles/artifactregistry.writer",
+    "roles/artifactregistry.reader",
+    // Monitoring
+    "roles/monitoring.editor",
+    // Logging
+    "roles/logging.admin",
+    // Spanner
+    "roles/spanner.databaseAdmin",
+    "roles/spanner.databaseReader",
+    // Memorystore for Redis
+    "roles/redis.editor",
+  ])
+  role = each.value
+}
+
+//-----------------------------------------------------------------------------
+// IAM: minewest065524@gmail.com に開発に必要な最小限の権限を付与する
+//-----------------------------------------------------------------------------
+resource "google_project_iam_member" "ryota_nishimine" {
+  project = local.project_id
+  member  = "user:minewest065524@gmail.com"
+  for_each = toset([
+    // Global
+    "roles/viewer",
+
+    // Firebase
+    "roles/firebase.developAdmin",
+  ])
+  role = each.value
+}
+
+//-----------------------------------------------------------------------------
+// IAM: icoriha.dev@gmail.com に開発に必要な最小限の権限を付与する
+//-----------------------------------------------------------------------------
+resource "google_project_iam_member" "hiroki_ogata" {
+  project = local.project_id
+  member  = "user:icoriha.dev@gmail.com"
+  for_each = toset([
+    // Global
+    "roles/viewer",
+
+    // Firebase
+    "roles/firebase.developAdmin",
+  ])
+  role = each.value
+}
