@@ -16,6 +16,7 @@
 
 - [ ] Test passed
 - [ ] Coding style (indentation, etc)
+- [ ] Function description
 
 ### 追加のコメント(ある場合)
 
