@@ -1,6 +1,6 @@
 ---
 name: "❓ Question or Support Request"
-about: "質問またはリクエストをサポートするためのIssue"
+about: "質問またはリクエストをサポートするための Issue"
 title: ""
 labels: question
 assignees: GotoRen
