@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://opensource.org/licenses/MIT)
 [![Go](https://img.shields.io/badge/Go-1.23.1-blue.svg)](https://tip.golang.org/doc/go1.23)
-[![Kubernetes](https://img.shields.io/badge/kubernetes-1.29.8-blue)](https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release)
+[![Kubernetes](https://img.shields.io/badge/kubernetes-1.30.4-blue)](https://kubernetes.io/blog/2023/12/13/kubernetes-v1-29-release)
 [![Terraform](https://img.shields.io/badge/terraform-1.9.5-purple)](https://github.com/hashicorp/terraform/releases/tag/v1.9.5)
 
 [![Go](https://github.com/gaudi-organization/gaudi-cloud/actions/workflows/go.yaml/badge.svg)](https://github.com/gaudi-organization/gaudi-cloud/actions/workflows/go.yaml)

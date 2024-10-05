@@ -18,14 +18,6 @@ resource "google_project_iam_member" "gke_service_account_iam_role" {
     "roles/monitoring.viewer",
     "roles/monitoring.metricWriter",
     "roles/logging.logWriter",
-    # "roles/container.clusterAdmin",
-    # "roles/compute.networkAdmin",
-    # "roles/compute.instanceAdmin.v1",
-    # "roles/iam.serviceAccountUser",
-    # "roles/container.developer",
-    # "roles/compute.loadBalancerAdmin",
-    # "roles/compute.securityAdmin",
-    # "roles/dns.admin",
   ])
   role = each.value
 }

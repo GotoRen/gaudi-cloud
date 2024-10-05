@@ -109,10 +109,11 @@ resource "google_container_cluster" "gke_gaudi_prd" {
 }
 
 resource "google_container_node_pool" "gke_gaudi_prd_node_pool" {
-  project  = local.project_id
-  name     = "${local.cluster_name}-node-pool"
-  location = local.region
-  cluster  = google_container_cluster.gke_gaudi_prd.id
+  project        = local.project_id
+  name           = "${local.cluster_name}-node-pool"
+  location       = local.region
+  cluster        = google_container_cluster.gke_gaudi_prd.id
+  node_locations = local.node_locations
 
   ### Node Pool
   # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_node_pool#autoscaling
