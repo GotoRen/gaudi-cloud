@@ -9,7 +9,6 @@ labels:
     includeTemplates: true
 namespace: nginx
 resources:
-  - ./backend-config.yaml
   - ./deployment.yaml
   - ./hpa.yaml
   - ./ingress.yaml

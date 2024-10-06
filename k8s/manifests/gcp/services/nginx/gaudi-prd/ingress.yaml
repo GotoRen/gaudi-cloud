@@ -3,21 +3,13 @@ kind: Ingress
 metadata:
   name: nginx-ingress
   namespace: nginx
-  annotations:
-    kubernetes.io/ingress.allow-http: "true"
-    kubernetes.io/ingress.class: "gce"
 spec:
-  # ingressClassName: "gce"
-  defaultBackend:
-    service:
-      name: nginx-svc
-      port:
-        number: 80
   rules:
-    - http:
+    - host: nginx.gaudi.ren510.dev
+      http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: nginx-svc
