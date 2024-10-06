@@ -1,0 +1,12 @@
+yaml-files:
+  - "*.yaml"
+  - "*.yml"
+  - ".yamllint"
+  - ".yamlfmt"
+
+ignore: |
+  /**/charts/**
+
+rules:
+  document-start: disable
+  line-length: disable

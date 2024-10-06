@@ -1,4 +1,3 @@
-
 data "terraform_remote_state" "cloud-dns" {
   backend = "gcs"
 

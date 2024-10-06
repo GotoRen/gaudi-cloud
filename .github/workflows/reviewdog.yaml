@@ -1,0 +1,13 @@
+name: reviewdog
+on: [pull_request]
+jobs:
+  yamllint:
+    name: runner / yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # Use v3.3.0 (https://github.com/actions/checkout/releases/tag/v3.3.0)
+      - name: yamllint
+        uses: reviewdog/action-yamllint@efeccedfc67c3b74c89e233cd61c8133784b82e0 # v1.5.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review

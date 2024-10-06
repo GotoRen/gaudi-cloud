@@ -15,7 +15,7 @@ resource "google_project_iam_member" "cert_manager_iam_role" {
   project = local.project_id
   member  = "serviceAccount:${google_service_account.cert_manager.email}"
   for_each = toset([
-    "roles/dns.admin", // Cloud DNS 管理者権限: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/gke.md#workload-identity
+    "roles/dns.admin", // Cloud DNS 管理者権限: https://cert-manager.io/docs/configuration/acme/dns01/google/
   ])
   role = each.value
 }
