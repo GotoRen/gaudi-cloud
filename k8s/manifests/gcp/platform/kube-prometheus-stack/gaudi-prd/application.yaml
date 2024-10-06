@@ -14,9 +14,9 @@ spec:
     targetRevision: main
   syncPolicy:
     syncOptions:
-      - ServerSideApply=true
       - CreateNamespace=true
-      - PruneLast=false
+      - ServerSideApply=true
+      # - PruneLast=false # 他リソースの Sync を待たずに Prune する # see: https://github.com/argoproj/argo-cd/issues/6880
     automated:
       selfHeal: true
       prune: true
