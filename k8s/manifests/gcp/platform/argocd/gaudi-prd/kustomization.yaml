@@ -7,8 +7,6 @@ labels:
       app.kubernetes.io/managed-by: argocd
     includeTemplates: true
 resources:
-  - ./backend-config.yaml
-  - ./ingress.yaml
   - ./namespace.yaml
 namespace: argocd
 helmCharts:

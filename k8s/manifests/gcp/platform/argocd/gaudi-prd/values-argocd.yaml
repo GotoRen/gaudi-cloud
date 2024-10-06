@@ -2073,7 +2073,7 @@ server:
   # Argo CD server ingress configuration
   ingress:
     # -- Enable an ingress resource for the Argo CD server
-    enabled: false
+    enabled: true
     # -- Specific implementation for ingress controller. One of `generic`, `aws` or `gke`
     ## Additional configuration might be required in related configuration sections
     controller: generic
@@ -2082,16 +2082,15 @@ server:
     # -- Additional ingress annotations
     ## Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-1-ssl-passthrough
     annotations:
-      {}
-      # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-      # nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      kubernetes.io/ingress.class: "gce"
+      external-dns.alpha.kubernetes.io/hostname: "argocd.gaudi.ren510.dev" # for creating record-set
 
     # -- Defines which ingress controller will implement the resource
     ingressClassName: ""
 
     # -- Argo CD server hostname
     # @default -- `""` (defaults to global.domain)
-    hostname: ""
+    hostname: argocd.gaudi.ren510.dev
 
     # -- The path to Argo CD server
     path: /
@@ -2142,10 +2141,9 @@ server:
     # -- Additional TLS configuration
     # @default -- `[]` (See [values.yaml])
     extraTls:
-      []
-      # - hosts:
-      #   - argocd.example.com
-      #   secretName: your-certificate-name
+      - hosts:
+          - argocd.gaudi.ren510.dev
+        secretName: wildcard-gaudi-ren510-dev
 
     # AWS specific options for Application Load Balancer
     # Applies only when `serv.ingress.controller` is set to `aws`
