@@ -1,21 +1,21 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kube-prometheus-stack
-  namespace: argocd
-spec:
-  project: gaudi-cloud
-  destination:
-    namespace: monitoring
-    server: https://kubernetes.default.svc
-  source:
-    repoURL: git@github.com:gaudi-organization/gaudi-cloud.git
-    path: k8s/manifests/gcp/platform/kube-prometheus-stack/gaudi-prd
-    targetRevision: main
-  syncPolicy:
-    syncOptions:
-      - ServerSideApply=true
-      - CreateNamespace=true
-    automated:
-      selfHeal: true
-      prune: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus-stack
+#   namespace: argocd
+# spec:
+#   project: gaudi-cloud
+#   destination:
+#     namespace: monitoring
+#     server: https://kubernetes.default.svc
+#   source:
+#     repoURL: git@github.com:gaudi-organization/gaudi-cloud.git
+#     path: k8s/manifests/gcp/platform/kube-prometheus-stack/gaudi-prd
+#     targetRevision: main
+#   syncPolicy:
+#     syncOptions:
+#       - ServerSideApply=true
+#       - CreateNamespace=true
+#     automated:
+#       selfHeal: true
+#       prune: true
