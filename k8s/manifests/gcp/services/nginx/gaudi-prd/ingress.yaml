@@ -3,7 +3,14 @@ kind: Ingress
 metadata:
   name: nginx-ingress
   namespace: nginx
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    external-dns.alpha.kubernetes.io/hostname: "nginx.gaudi.ren510.dev" # for creating record-set
 spec:
+  tls:
+    - hosts:
+        - nginx.gaudi.ren510.dev
+      secretName: wildcard-gaudi-ren510-dev
   rules:
     - host: nginx.gaudi.ren510.dev
       http:

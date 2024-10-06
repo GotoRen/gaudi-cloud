@@ -47,7 +47,7 @@ global:
 
   leaderElection:
     # Override the namespace used for the leader election lease.
-    namespace: "kube-system"
+    namespace: "cert-manager" ## FIXME: https://cert-manager.io/docs/troubleshooting/webhook/#error-x509-certificate-signed-by-unknown-authority
 
     # The duration that non-leader candidates will wait after observing a
     # leadership renewal until attempting to acquire leadership of a led but
@@ -190,7 +190,8 @@ serviceAccount:
 
   # Optional additional annotations to add to the controller's Service Account.
   # +docs:property
-  # annotations: {}
+  annotations:
+    iam.gke.io/gcp-service-account: cert-manager@gcp-gaudi-prd.iam.gserviceaccount.com
 
   # Optional additional labels to add to the controller's Service Account.
   # +docs:property

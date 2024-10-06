@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-issuer
+  namespace: argocd
+spec:
+  project: gaudi-cloud
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: git@github.com:gaudi-organization/gaudi-cloud.git
+    path: k8s/manifests/gcp/platform/cert-manager-issuer/gaudi-prd
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
