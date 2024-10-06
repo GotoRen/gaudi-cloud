@@ -15,7 +15,7 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
-      - ServerSideApply=true
+      # - ServerSideApply=true # これを設定すると Sync Loop に陥る可能性がある
       - ApplyOutOfSyncOnly=true
       - PruneLast=false # 他リソースの Sync を待たずに Prune する # see: https://github.com/argoproj/argo-cd/issues/6880
     automated:
