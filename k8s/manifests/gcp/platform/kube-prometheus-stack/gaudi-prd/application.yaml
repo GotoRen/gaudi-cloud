@@ -1,23 +1,23 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kube-prometheus-stack
-  namespace: argocd
-spec:
-  project: gaudi-cloud
-  destination:
-    namespace: monitoring
-    server: https://kubernetes.default.svc
-  source:
-    repoURL: git@github.com:gaudi-organization/gaudi-cloud.git
-    path: k8s/manifests/gcp/platform/kube-prometheus-stack/gaudi-prd
-    targetRevision: main
-  syncPolicy:
-    syncOptions:
-      - CreateNamespace=true
-      - ServerSideApply=true # metadata.annotations: Too long: must have at most 262144 bytes を回避する
-      # - PruneLast=false # 他リソースの Sync を待たずに Prune する # see: https://github.com/argoproj/argo-cd/issues/6880
-      - ApplyOutOfSyncOnly=true
-    automated:
-      selfHeal: true
-      prune: true
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kube-prometheus-stack
+#   namespace: argocd
+# spec:
+#   project: gaudi-cloud
+#   destination:
+#     namespace: monitoring
+#     server: https://kubernetes.default.svc
+#   source:
+#     repoURL: git@github.com:gaudi-organization/gaudi-cloud.git
+#     path: k8s/manifests/gcp/platform/kube-prometheus-stack/gaudi-prd
+#     targetRevision: main
+#   syncPolicy:
+#     syncOptions:
+#       - CreateNamespace=true
+#       - ServerSideApply=true # metadata.annotations: Too long: must have at most 262144 bytes を回避する
+#       # - PruneLast=false # 他リソースの Sync を待たずに Prune する # see: https://github.com/argoproj/argo-cd/issues/6880
+#       - ApplyOutOfSyncOnly=true
+#     automated:
+#       selfHeal: true
+#       prune: true
