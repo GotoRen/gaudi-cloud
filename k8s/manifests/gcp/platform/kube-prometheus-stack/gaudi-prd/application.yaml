@@ -16,7 +16,7 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true # metadata.annotations: Too long: must have at most 262144 bytes を回避する
-      - PruneLast=false # 他リソースの Sync を待たずに Prune する # see: https://github.com/argoproj/argo-cd/issues/6880
+      # - PruneLast=false # 他リソースの Sync を待たずに Prune する # see: https://github.com/argoproj/argo-cd/issues/6880
       - ApplyOutOfSyncOnly=true
     automated:
       selfHeal: true
