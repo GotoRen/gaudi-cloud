@@ -9,7 +9,7 @@ spec:
     namespace: gaudi-backend
     server: https://kubernetes.default.svc
   source:
-    repoURL: git@github.com:gaudi-organization/gaudi-server.git
+    repoURL: git@github.com:gaudi-organization/gaudi-backend.git
     path: charts/backend
     targetRevision: main
     helm:

@@ -103,9 +103,9 @@ projects:
 
   gaudi:
     namespace: argocd
-    description: gaudi-server
+    description: gaudi-backend
     sourceRepos:
-      - git@github.com:gaudi-organization/gaudi-server.git
+      - git@github.com:gaudi-organization/gaudi-backend.git
     destinations:
       - name: gaudi-tky-prd
         namespace: "*"
