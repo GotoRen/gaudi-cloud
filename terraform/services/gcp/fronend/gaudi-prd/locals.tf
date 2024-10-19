@@ -7,5 +7,6 @@ locals {
 }
 
 locals {
+  name                 = "gaudi-prd-frontend"
   service_account_name = "gaudi-frontend-sa"
 }
