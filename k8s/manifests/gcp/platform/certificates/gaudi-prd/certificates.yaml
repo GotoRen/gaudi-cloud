@@ -1,25 +1,25 @@
-############################################
-# Wildcard Certificate: *.gaudi.ren510.prd
-# Secrets Namespace: nginx
-############################################
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: wildcard-gaudi-ren510-dev
-  namespace: nginx
-spec:
-  secretName: wildcard-gaudi-ren510-dev
-  dnsNames:
-    - "*.gaudi.ren510.dev"
-  issuerRef:
-    # トライアルアンドエラーを繰り返していると、Let's Encrypt の制限により停止される場合がある。
-    # see: https://letsencrypt.org/docs/rate-limits/
-    # トライアルで利用する場合は、letsencrypt-staging を利用し、確認後 letsencrypt-production を利用する。
-    # staging で取得した証明書は信頼度が低いため、本番環境で利用する場合は、必ず letsencrypt-production で発行する。
-    name: letsencrypt-production # or letsencrypt-staging
-    kind: ClusterIssuer
-    group: cert-manager.io
----
+# ############################################
+# # Wildcard Certificate: *.gaudi.ren510.prd
+# # Secrets Namespace: nginx
+# ############################################
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: wildcard-gaudi-ren510-dev
+#   namespace: nginx
+# spec:
+#   secretName: wildcard-gaudi-ren510-dev
+#   dnsNames:
+#     - "*.gaudi.ren510.dev"
+#   issuerRef:
+#     # トライアルアンドエラーを繰り返していると、Let's Encrypt の制限により停止される場合がある。
+#     # see: https://letsencrypt.org/docs/rate-limits/
+#     # トライアルで利用する場合は、letsencrypt-staging を利用し、確認後 letsencrypt-production を利用する。
+#     # staging で取得した証明書は信頼度が低いため、本番環境で利用する場合は、必ず letsencrypt-production で発行する。
+#     name: letsencrypt-production # or letsencrypt-staging
+#     kind: ClusterIssuer
+#     group: cert-manager.io
+# ---
 ############################################
 # Wildcard Certificate: *.gaudi.ren510.prd
 # Secrets Namespace: monitoring
