@@ -47,6 +47,8 @@ global:
 
   leaderElection:
     # Override the namespace used for the leader election lease.
+
+    # Issue: https://github.com/cert-manager/cert-manager/issues/6716
     namespace: "cert-manager" ## FIXME: https://cert-manager.io/docs/troubleshooting/webhook/#error-x509-certificate-signed-by-unknown-authority
 
     # The duration that non-leader candidates will wait after observing a
