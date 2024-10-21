@@ -15,6 +15,6 @@ terraform {
 
   backend "gcs" {
     bucket = "gaudi-prd-terraform-tfstate"
-    prefix = "platform/gcp/workload-identity-federation/modules/github"
+    prefix = "platform/gcp/workload-identity-federation/gaudi-prd/github"
   }
 }

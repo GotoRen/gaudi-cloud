@@ -3,6 +3,6 @@ data "terraform_remote_state" "workload_identity_federation" {
 
   config = {
     bucket = "gaudi-prd-terraform-tfstate"
-    prefix = "platform/gcp/workload-identity-federation/modules/github"
+    prefix = "platform/gcp/workload-identity-federation/gaudi-prd/github"
   }
 }
