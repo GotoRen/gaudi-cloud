@@ -21,7 +21,7 @@ Coming soon...
 
 ### Configutaion
 
-![Qiita-Hackathon-2024.png](https://github.com/user-attachments/assets/a50dc19c-ea58-4027-a9ce-d3f7f40b18c0)
+![Qiita-Hackathon-2024.png](https://github.com/user-attachments/assets/fc14be8a-f298-4f32-99a1-da42a130659f)
 
 ## Supported Platform
 
